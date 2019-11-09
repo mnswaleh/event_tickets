@@ -1,0 +1,24 @@
+@keyframes body_an {
+    0%   {background-color: #fffafa;}
+    25%  {background-color: #f0fff0;}
+    50%  {background-color: #f0f0ff;}
+    100% {background-color: #f0f0e1;}
+}
+
+body {
+    background-color: #fffafa;
+    animation: body_an 40s linear 5s infinite alternate;
+}
+
+h1, h4{
+    color: #8a2be2;
+}
+
+.modal {
+    background-color: rgb(62, 30, 92, 0.5);
+}
+
+footer{
+    min-height: 5em;
+    background-color: #3e1e5c;
+}
