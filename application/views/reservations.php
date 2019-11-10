@@ -10,38 +10,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Ticket Nos.</th>
                         <th scope="col">Event</th>
                         <th scope="col">Venue</th>
                         <th scope="col">Date</th>
+                        <th scope="col">VIP</th>
+                        <th scope="col">Regular</th>
                         <th scope="col">Total</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>34,26</td>
-                        <td>Otongolo Event</td>
-                        <td>KICC</td>
-                        <td>20/10/2019</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>34,26</td>
-                        <td>Otongolo Event</td>
-                        <td>KICC</td>
-                        <td>20/10/2019</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>34,26</td>
-                        <td>Otongolo Event</td>
-                        <td>KICC</td>
-                        <td>20/10/2019</td>
-                        <td>2</td>
-                    </tr>
+                    <?php $i=1; foreach ($reservations as $reservation):?>
+                        <tr>
+                            <th scope="row"><?php echo $i; ?></th>
+                            <td><?php echo $reservation['eventTitle']; ?></td>
+                            <td><?php echo $reservation['venue']; ?></td>
+                            <td><?php echo $reservation['eventDate']; ?></td>
+                            <td><?php echo $reservation['vip']; ?></td>
+                            <td><?php echo $reservation['regular']; ?></td>
+                            <td><?php echo ($reservation['vip'] + $reservation['regular']); ?></td>
+                        </tr>
+                    <?php $i++; endforeach;?>
                 </tbody>
             </table>
 		</div>

@@ -12,3 +12,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo asset_url() ?>css/styles.css">
 </head>
 <body>
+<script>
+	const site_url = "<?php echo site_url(); ?>";
+</script>

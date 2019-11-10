@@ -7,14 +7,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
 			<div class="text-center"><i>Please Login</i></div>
-			<form action="<?php echo site_url('reservations/') ?>" class="clearfix">
+			<form id="formLogin" class="clearfix">
+				<small class="form-text text-danger text-center all-error" hidden>Invalid Email or Password!</small>
 				<div class="form-group">
 					<label class="font-weight-bold" for="email">Email:</label>
-					<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+					<input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
 				</div>
 				<div class="form-group">
 					<label class="font-weight-bold" for="password">Password:</label>
-					<input type="password" class="form-control" id="password" placeholder="********">
+					<input type="password" class="form-control" name="password" placeholder="********">
 				</div>
 				<button type="submit" class="btn btn-success float-right">Login</button>
 			</form>
@@ -35,33 +36,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </button>
       </div>
       <div class="modal-body">
-            <form action="<?php echo site_url('reservations/') ?>">
+            <form id="formSign">
 				<div class="form-group">
 					<label class="font-weight-bold" for="firstName">First Name:</label>
-					<input type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="Enter First Name">
-					<small id="emailHelp" class="form-text text-danger small" hidden>We'll never share your email with anyone else.</small>
+					<input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="firstName" placeholder="Enter First Name">
                 </div>
                 <div class="form-group">
 					<label class="font-weight-bold" for="lastName">Last Name:</label>
-					<input type="text" class="form-control" id="lastName" aria-describedby="emailHelp" placeholder="Enter Last Name">
+					<input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="emailHelp" placeholder="Enter Last Name">
                 </div>
                 <div class="form-group">
 					<label class="font-weight-bold" for="signEmail">Email:</label>
-					<input type="date" class="form-control" id="signEmail" aria-describedby="emailHelp" placeholder="Enter email">
+					<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-					<label class="font-weight-bold" for="signPass">Password:</label>
-					<input type="password" min="0" class="form-control" id="signPass" aria-describedby="Password" placeholder="********">
+					<label class="font-weight-bold" for="password">Password:</label>
+					<input type="password" min="0" class="form-control" id="password" name="password" aria-describedby="Password" placeholder="********">
                 </div>
                 <div class="form-group">
 					<label class="font-weight-bold" for="confirmPass">Confirm Password:</label>
-					<input type="password" class="form-control" id="confirmPass" aria-describedby="Confirm Password" placeholder="********">
+					<input type="password" class="form-control" id="confirmPass" name="confirmPass" aria-describedby="Confirm Password" placeholder="********">
                 </div>
 			</form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-success"> Sign up</button>
+        <button type="button" id="btnSign" class="btn btn-success"> Sign up</button>
       </div>
     </div>
   </div>

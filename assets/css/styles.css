@@ -5,6 +5,10 @@
     100% {background-color: #f0f0e1;}
 }
 
+html {
+    padding-bottom: 7em;
+}
+
 body {
     background-color: #fffafa;
     animation: body_an 40s linear 5s infinite alternate;
