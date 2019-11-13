@@ -19,7 +19,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i=1; foreach ($reservations as $reservation):?>
+                    <?php
+                        if (empty($reservations)){
+                            echo '<tr><td colspan="7" class="text-center"> No Active reservations!</td></tr>';
+                        }
+                        $i=1;
+                        foreach ($reservations as $reservation):
+                    ?>
                         <tr>
                             <th scope="row"><?php echo $i; ?></th>
                             <td><?php echo $reservation['eventTitle']; ?></td>

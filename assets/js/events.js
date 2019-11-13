@@ -23,7 +23,9 @@ $(() => {
         $('#maxAttendees').val(attendees[1]);
     });
 
-    $('#btnEvent').click(()=>{
+    $('#btnEvent').click((e)=>{
+        const curr_btn = $(e.target);
+        post_start(curr_btn);
         $('.form-error').remove();
         $.post( current_url, $('#formEvent').serialize())
         .done((data)=> {
@@ -35,6 +37,7 @@ $(() => {
                     $("#" + key).after('<small class="form-text text-danger small form-error">' + value + '</small>');
                 });
             }
+            post_finish(curr_btn);
         });
     });
 
@@ -69,7 +72,9 @@ $(() => {
         set_total()
     });
 
-    $('#btnReserve').click(()=>{
+    $('#btnReserve').click((e)=>{
+        const curr_btn = $(e.target);
+        post_start(curr_btn);
         $('.all-error').text('');
         const post_data = {
             eventId: event_id,
@@ -86,6 +91,7 @@ $(() => {
             }else {
                 $('.all-error').text(response.error);
             }
+            post_finish(curr_btn);
         });
     });
 
@@ -94,7 +100,9 @@ $(() => {
         event_id = parent_row.attr('id');
     });
 
-    const delete_event = () => {
+    $("body").on('click', '.deleteBtn',  (e) => {
+        const curr_btn = $(e.target);
+        post_start(curr_btn);
         $.post( site_url + 'events/delete_event/' + event_id)
         .done((data)=> {
             const response = JSON.parse(data);
@@ -103,11 +111,8 @@ $(() => {
             }else {
                 alert('Server Error!');
             }
+            post_finish(curr_btn);
         });
-    }
-
-    $("body").on('click', '.deleteBtn',  () => {
-        delete_event();
     });
 
     $('body').on('hidden.bs.popover', (e) => {

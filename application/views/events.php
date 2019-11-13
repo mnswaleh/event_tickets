@@ -20,7 +20,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i=1; foreach ($events as $event):?>
+                    <?php
+                        if (empty($events)){
+                            echo '<tr><td colspan="8" class="text-center"> No upcoming events!</td></tr>';
+                        }
+                        $i=1;
+                        foreach ($events as $event):
+                    ?>
                       <tr id="<?php echo $event['id']; ?>">
                           <th scope="row"><?php echo $i; ?></th>
                           <td><?php echo $event['eventTitle']; ?></td>

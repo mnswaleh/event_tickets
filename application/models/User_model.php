@@ -21,8 +21,9 @@ class User_model extends CI_Model {
     }
 
     function current_user(){
-        $user = $this->select_where('firstName, lastName', ["id" => $_SESSION['user_id']]);
+        $user = $this->select_where('firstName, lastName, email', ["id" => $_SESSION['user_id']]);
         $user_data['user'] = ucfirst($user['firstName']) . ' ' . ucfirst($user['lastName']);
+        $user_data['user_email'] = $user['email'];
 
         return $user_data;
     }
