@@ -25,8 +25,8 @@ class Reservations extends CI_Controller {
 			'protocol' => 'smtp',
 			'smtp_host' => 'ssl://smtp.googlemail.com',
 			'smtp_port' => 465,
-			'smtp_user' => 'XXX@gmail.com', // change it to yours
-			'smtp_pass' => 'XXX', // change it to yours
+			'smtp_user' => getenv('SMTP_USER'),
+			'smtp_pass' => getenv('SMTP_PASSWORD'),
 			'mailtype' => 'html',
 			'charset' => 'iso-8859-1',
 			'wordwrap' => TRUE
@@ -34,7 +34,7 @@ class Reservations extends CI_Controller {
 
 		$this->load->library('email', $config);
 		$this->email->set_newline("\r\n");
-		$this->email->from('XXX@gmail.com'); // change it to yours
+		$this->email->from(getenv('SMTP_USER'));
 		$this->email->to($to);
 		$this->email->subject('CHURCHILL Reservation');
 		$this->email->message($message);
